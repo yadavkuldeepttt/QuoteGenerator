@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            margin: 0;border: 0;
+            box-sizing: border-box;
+            	font-family: 'Source Sans Pro', sans-serif;
+        }
+        body{
+            height: 97vh;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            background-color: #333;
+        }
+        .container{
+            background-color: white;
+            border-radius: 12px;
+            width: 60%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+       .cardbody{
+             background-color: cadetblue;
+             height: 50vh;
+             padding: 3rem;
+             border-radius: 10px;
+             width: 40%;
+       }            
+       .cardbody p{
+        margin-bottom: 3.5rem;
+       }
+       .cardbody h3{
+        margin-bottom: 2.5rem;
+       }
+       .cardbody button{
+        cursor: pointer;
+        padding: 0.4rem;
+        /* background-color: #7FDBFF; */
+        box-shadow: 4px 4px #000;
+       }
+       .cardbody button:active{
+             box-shadow: 4px 4px #fff;
+             transform: translate(4px ,4px);
+       }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="cardbody">
+                <p id="quote">Your time is limited, so don't waste it living
+                    someone
+                    else's life </p>
+                <h3 id="author">- Steve Jobs</h3>
+                <button id="generate" type="button" title="k">Generate Quote</button>
+            </div>
+        </div>
+    </body>
+    <!-- javascript -->
+    <script>
+    document.getElementById("generate").addEventListener("click",()=>{
+         generate();
+    })
+         let generate = ()=>{
+            let quotes = {
+           "-Nelson Mandela" : 'The greatest glory in living lies not in never falling, but in rising every time we fall.' ,
+             "-Walt Disney"  : ' The way to get started is to quit talking and begin doing.',
+             "-Steve Jobs"   :  "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma  which is living with the results of other people's thinking.",
+          "-Eleanor Roosevelt" :  'If life were predictable it would cease to be life, and be without flavor. ',
+          "-Oprah Winfrey":     "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.", 
+         "-James Cameron"  :  "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.", 
+          "-John Lennon":    "Life is what happens when you're busy making other plans."          
+         }
+        
+        let authors = Object.keys(quotes);
+         let author = authors[Math.floor(Math.random()*authors.length)];
+         let quote = quotes[author];
+
+         document.getElementById("quote").textContent = quote;
+
+        document.getElementById("author").textContent = author;
+         } 
+    </script>
+</html>
